@@ -1,0 +1,109 @@
+#! /bin/bash
+
+#----------------------------------
+# $Author: ee364f15 $
+# $Date: 2017-02-15 15:20:14 -0500 (Wed, 15 Feb 2017) $
+#----------------------------------
+
+function part_a 
+{               
+    # Fill out your answer here
+	chmod +x prelab.py
+	./prelab.py>"output.txt"
+    return                      
+}                               
+
+function part_b
+{              
+    # Fill out your answer here
+	no1=99515
+	no2=85004
+	no3=10001
+	while read line
+	do
+		sp=$(echo $line | cut -d "," -f7)
+		if (( $sp > $no1 ))
+		then
+			no3=$no2
+			no2=$no1
+			no1=$sp
+		fi
+	done < people.csv
+	echo "People with the 3 highest zipcodes:"	
+	while read line
+	do
+		sp=$(echo $line | cut -d "," -f7)
+		if (( $sp == $no1 ))
+		then
+			name1=$(echo $line | cut -d "," -f2)
+			echo $name1
+		fi
+		if (( $sp == $no2 ))
+		then
+			name2=$(echo $line | cut -d "," -f2)
+			echo $name2
+		fi
+		if (( $sp == $no3 ))
+		then
+			name3=$(echo $line | cut -d "," -f2)
+			echo $name3
+		fi
+	done < people.csv
+    return                     
+}                              
+
+function part_c
+{
+    # Fill out your answer here
+	cd src
+	files=( *.c )
+	for items in $files
+	do
+		if gcc $items
+		then
+			echo "$items: success"
+		else
+			echo "$items: failure"
+		fi
+	done
+    return
+}
+
+function part_d
+{
+    # Fill out your answer here
+	Arr=(a.txt b.txt c.txt d.txt)
+	(( n=$RANDOM % 4 ))
+	if (( n == 0 ))
+	then
+		sed -n "4,6p" < a.txt
+	fi
+	if (( n == 1 ))
+	then
+		sed -n "4,6p" < b.txt
+	fi
+	if (( n == 2 ))
+	then
+		sed -n "4,6p" < c.txt
+	fi
+	if (( n == 3 ))
+	then
+		sed -n "4,6p" < d.txt
+	fi
+    return
+}
+
+function part_e
+{
+    # Fill out your answer here
+	s=(ping -T ecegrid.ecn.purdue.edu)
+	sp=$($s|cut -d "/" -f5)
+	echo $sp
+    return
+}
+
+# To test your function, you can call it below like this:
+#
+# part_a
+part_b
+part_e

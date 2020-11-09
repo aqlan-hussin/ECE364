@@ -1,0 +1,48 @@
+#! /bin/bash
+
+#---------------------------------------
+# $Author: ee364f15 $
+# $Date: 2017-01-18 14:59:37 -0500 (Wed, 18 Jan 2017) $
+#---------------------------------------
+
+# Do not modify above this line.
+
+total_ath=0
+total_medal=0
+most_medal=0
+
+if (( $# != 2 ))
+then
+	echo "Usage: collect_stats.bash <file> <sport>"
+	exit 1
+fi
+
+if [[ ! -e $1 ]]
+then		
+	echo "Error: $1 does not exist"
+	exit 2
+fi
+
+while read line
+do
+		sp=$(echo $line | cut -d "," -f2)
+		if [[ $sp == $2 ]]
+		then
+			medal=$(echo $line | cut -d "," -f3) 
+			 
+			let total_medal=total_medal+medal
+			let total_ath=total_ath+1
+			if (( $medal > most_medal ))
+			then
+				most_medal=$medal
+				name=$(echo $line | cut -d "," -f1)
+			fi
+			
+		fi
+done < $1
+
+echo "Total athletes: $total_ath"
+echo "Total medals won: $total_medal"
+echo "$name won the most medals: $most_medal"
+
+exit 0

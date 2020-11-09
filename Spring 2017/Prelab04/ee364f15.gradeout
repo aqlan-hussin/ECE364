@@ -1,0 +1,19 @@
+Prelab04/ee364f15/
+
+
+------------------------------------------------------------------------------------------
+FUNCTION                  | DESCRIPTION               | COMMENTS                  | POINTS    
+------------------------------------------------------------------------------------------
+getPossibleMatches                                      Passed                      2/2       
+getPurchaseReport                                       FAILED                      0/2       
+getStateName                                            Passed                      2/2       
+getTotalSold                                            Passed                      2/2       
+getZipCodes                                             Passed                      2/2       
+printNames                                              Passed                      2/2       
+printSortedMap                                          FAILED                      0/2       
+scaleSet                                                Passed                      2/2       
+switchNames                                             Passed                      2/2       
+uniqueLetters                                           FAILED                      0/2       
+------------------------------------------------------------------------------------------
+
+Total Score = 14

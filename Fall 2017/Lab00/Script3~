@@ -1,0 +1,19 @@
+#! /bin/bash
+
+if (( $# != 1 ))
+then
+	exit 1
+fi
+
+n=$@
+
+for (( i=$n; i>=0; i-- ))
+do
+	if (( $i % 3 == 0 ))
+		echo ${i}
+done
+
+exit 0
+
+
+

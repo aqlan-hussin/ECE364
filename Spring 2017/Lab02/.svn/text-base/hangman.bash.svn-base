@@ -1,0 +1,97 @@
+#! /bin/bash
+
+#---------------------------------------
+# $Author$
+# $Date$
+#---------------------------------------
+
+# Do not modify above this line.
+
+if (( $# != 0 ))
+then
+	echo "Usage ./hangman.bash"
+	exit 1
+fi
+
+A=("banana" "parsimonious" "sesquipedalian")
+(( num=$RANDOM % 3 ))
+str=${A[$num]}
+length=${#str}
+word=$(echo $str | fold -w1)
+#if (( num == 1 ))
+#then
+	#length=6
+#	word=('b' 'a' 'n' 'a' 'n' 'a')
+#elif (( num == 2 ))
+#then
+	#length=12
+#	word=('p' 'a' 'r' 's' 'i' 'm' 'o' 'n' 'i' 'o' 'u' 's')
+#else
+	#length=14
+#	word=('s' 'e' 's' 'q' 'u' 'i' 'p' 'e' 'd' 'a' 'l' 'i' 'a' 'n')
+#fi
+
+echo "Your word is $length letters long."
+
+B=()
+
+for (( i=0; i < $length; i++ ))
+do
+	B[$i]="."
+	
+done
+
+echo -n "Word is: "
+for item in ${B[*]}
+do
+	echo -n "$item "
+done
+
+echo
+
+flag=0
+
+while [[ ${word[@]} != ${B[@]} ]]
+do	
+	j=0
+	match=0	
+	echo -n "Make a guess: "
+	read letter
+	echo
+	for items in ${word[*]}
+	do
+		#echo "$x ${word[$j]}"		
+		if [[ $letter == $items ]]
+		then
+			B[$j]=$letter
+			match=1
+		fi
+		(( j = j + 1 ))
+	done
+	if (( $match == 1 ))
+	then
+		echo -n "Good going! "		
+		if [[ ${word[@]} == ${B[@]} ]]
+		then
+			echo			
+			echo "Congratulations! You guessed the word: $str"
+		else		
+			echo -n "Word is: "
+			for k in ${B[*]}
+			do
+				echo -n "$k "
+			done
+			echo ""
+		fi
+	else
+		echo -n "Sorry, try again. Word is: "
+		for k in ${B[*]}
+		do
+			echo -n "$k "
+		done
+		echo ""
+	fi
+done
+
+exit 0
+

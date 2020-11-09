@@ -1,0 +1,317 @@
+#! /usr/bin/env python3.4
+import math
+
+class PointND:
+
+    def __init__(self, *args):
+        self.n = len(args)
+        t = []
+        for items in args:
+            if type(items) is float:
+                t.append(items)
+            else:
+                raise ValueError("Cannot instantiate an object with non-float values.")
+        self.t = tuple(t)
+        pass
+
+    def __str__(self):
+        l = list(self.t)
+        str1 = "("
+        i = 0
+        while i < len(l):
+            if i == len(l)-1:
+                str1 += "{0:.2f}".format(l[i])
+            else:
+                str1 += "{0:.2f},".format(l[i])
+            i += 1
+        str1 += ")"
+        return str1
+
+    def __hash__(self):
+        return hash(self.t)
+
+    def distanceFrom(self,other):
+        if self.n != other.n:
+            raise ValueError("Cannot calculate distance between points of different cardinality")
+        i = 0
+        dist = 0
+        while i < self.n:
+            sq = (self.t[i]-other.t[i])
+            sq = sq*sq
+            dist += sq
+            i += 1
+        dist = math.sqrt(dist)
+        return round(dist,2)
+
+    def nearestPoint(self,points):
+        if len(points) == 0:
+            raise ValueError("Input cannot be empty")
+        near = self.distanceFrom(points[0])
+        point = points[0]
+        for items in points:
+            dist = self.distanceFrom(items)
+            if dist < near:
+                near = dist
+                point = items
+        return point
+
+    def clone(self):
+        cl = PointND(*self.t)
+        return cl
+
+    def __add__(self, other):
+        l = []
+        if isinstance(other, PointND):
+            if self.n != other.n:
+                raise ValueError("Cannot operate on points with different cardinalities.")
+            i = 0
+            while i < self.n:
+                l.append(self.t[i]+other.t[i])
+                i += 1
+            newP = PointND(l[0])
+            newP.t = tuple(l)
+            return newP
+        elif isinstance(other, float):
+            L = list(self.t)
+            for items in L:
+                l.append(items+other)
+            newP = PointND(l[0])
+            newP.t = tuple(l)
+            return newP
+        else:
+            return NotImplemented
+
+    def __sub__(self, other):
+        l = []
+        if isinstance(other, PointND):
+            if self.n != other.n:
+                raise ValueError("Cannot operate on points with different cardinalities.")
+            i = 0
+            while i < self.n:
+                l.append(self.t[i]-other.t[i])
+                i += 1
+            newP = PointND(l[0])
+            newP.t = tuple(l)
+            return newP
+        elif isinstance(other, float):
+            L = list(self.t)
+            for items in L:
+                l.append(items-other)
+            newP = PointND(l[0])
+            newP.t = tuple(l)
+            return newP
+        else:
+            return NotImplemented
+
+    def __mul__(self, other):
+        l = []
+        if isinstance(other, float):
+            L = list(self.t)
+            for items in L:
+                l.append(items*other)
+            newP = PointND(l[0])
+            newP.t = tuple(l)
+            return newP
+        else:
+            return NotImplemented
+
+    def __truediv__(self, other):
+        l = []
+        if isinstance(other, float):
+            L = list(self.t)
+            for items in L:
+                l.append(items/other)
+            newP = PointND(l[0])
+            newP.t = tuple(l)
+            return newP
+        else:
+            return NotImplemented
+
+    def __neg__(self):
+        l = []
+        for items in self.t:
+            l.append(0-items)
+        newP = PointND(l[0])
+        newP.t = tuple(l)
+        return newP
+
+    def __getitem__(self, item):
+        return self.t[item]
+
+    def __eq__(self, other):
+        if isinstance(other,PointND):
+            if self.n != other.n:
+                raise ValueError("Cannot compare points with different cardinalities.")
+            return self.t == other.t
+        else:
+            return NotImplemented
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __gt__(self, other):
+        if isinstance(other,PointND):
+            if self.n != other.n:
+                raise ValueError("Cannot compare points with different cardinalities.")
+            origin = PointND(0.0)
+            l = []
+            for items in self.t:
+                l.append(0.0)
+            origin.t = tuple(l)
+            origin.n = len(l)
+            dist1 = self.distanceFrom(origin)
+            dist2 = other.distanceFrom(origin)
+            if dist1 > dist2:
+                return True
+            else:
+                return False
+        else:
+            return NotImplemented
+
+    def __ge__(self, other):
+        if isinstance(other,PointND):
+            if self.n != other.n:
+                raise ValueError("Cannot compare points with different cardinalities.")
+            origin = PointND(0.0)
+            l = []
+            for items in self.t:
+                l.append(0.0)
+            origin.t = tuple(l)
+            origin.n = len(l)
+            dist1 = self.distanceFrom(origin)
+            dist2 = other.distanceFrom(origin)
+            if dist1 >= dist2:
+                return True
+            else:
+                return False
+        else:
+            return NotImplemented
+
+    def __lt__(self, other):
+        return not self.__ge__(other)
+
+    def __le__(self, other):
+        return not self.__gt__(other)
+
+class Point3D(PointND):
+
+    def __init__(self, x=0.0, y=0.0, z=0.0):
+        PointND.__init__(self,x,y,z)
+        pass
+
+class PointGroup:
+
+    def __init__(self,**kwargs):
+        if len(kwargs) == 0:
+            self._pointMap = {}
+            self.n = 0
+        else:
+            if "pointList" not in kwargs:
+                raise KeyError("'pointList' input parameter not found.")
+            else:
+                if len(kwargs["pointList"]) == 0:
+                    raise ValueError("'pointList' input parameter cannot be empty.")
+                pointList = kwargs["pointList"]
+                self.n = pointList[0].n
+                self._pointMap = {}
+                for point in pointList:
+                    if point.n != self.n:
+                        raise ValueError("Cannot add point {0}. Expecting a point with cardinality {1}.".format(point, self.n))
+                    myID = point.__hash__()
+                    self._pointMap[myID] = point
+
+        pass
+
+    def addPoint(self,point):
+        if self.n != point.n:
+            raise ValueError("Cannot add point {0}. Expecting a point with cardinality {1}.".format(point, self.n))
+        myID = point.__hash__()
+        self._pointMap[myID] = point
+
+    def count(self):
+        return len(self._pointMap)
+
+    def computeBindingHyperCube(self):
+        i = 0
+        minP = []
+        maxP = []
+        while i < self.n:
+            minP.append(0)
+            maxP.append(0)
+            i += 1
+        for point in self._pointMap.values():
+            initialP = point
+        i = 0
+        while i < self.n:
+            minP[i] = initialP.t[i]
+            maxP[i] = initialP.t[i]
+            i += 1
+        for point in self._pointMap.values():
+            j = 0
+            while j < self.n:
+                if point.t[j] < minP[j]:
+                    minP[j] = point.t[j]
+                if point.t[j] > maxP[j]:
+                    maxP[j] = point.t[j]
+                j += 1
+        minPoint = PointND(0.0)
+        maxPoint = PointND(0.0)
+        minPoint.t = tuple(minP)
+        minPoint.n = len(minP)
+        maxPoint.t = tuple(maxP)
+        maxPoint.n = len(maxP)
+        return tuple([minPoint,maxPoint])
+
+    def computeNearestNeighbors(self, otherPointGroup):
+        L1 = []
+        L2 = []
+        for p1 in self._pointMap.values():
+            p2 = p1.nearestPoint(list(otherPointGroup._pointMap.values()))
+            L1.append(p1)
+            L1.append(p2)
+            L2.append(tuple(L1))
+            L1.clear()
+        return sorted(L2)
+
+    def __iter__(self):
+        return iter(self._pointMap.values())
+
+    def __add__(self, other):
+        self.addPoint(other)
+        return self
+
+    def __sub__(self, other):
+        if self.n != other.n:
+            raise ValueError("Cannot add point {0}. Expecting a point with cardinality {1}.".format(point, self.n))
+        myID = other.__hash__()
+        del self._pointMap[myID]
+        return self
+
+    def __contains__(self, item):
+        return item in self._pointMap.values()
+
+
+if __name__ == "__main__":
+    a = PointND(0.0,0.0)
+    b = PointND(3.0,4.0)
+    c = PointND(8.3,9.1)
+    d = PointND(12.3,9.87)
+    e = PointND(1.0,1.0)
+    l = [b,d,e]
+    print(a.__str__())
+    print(a.distanceFrom(b))
+    print(a.nearestPoint(l))
+    print(a.clone())
+    print(a<b)
+    f = Point3D(3.0,4.0,5.0)
+    g = PointGroup(pointList=[a,b,d])
+    h = PointGroup(pointList=[c,e,a])
+    print(h._pointMap)
+    print(g._pointMap)
+    print(g.computeBindingHyperCube())
+    g+c
+    print(len(g._pointMap))
+    g-c
+    print(len(g._pointMap))
+    m = g.computeNearestNeighbors(h)
+    print(m)

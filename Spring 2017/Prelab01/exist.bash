@@ -1,0 +1,16 @@
+#! /bin/bash
+
+i=0
+while (( $# != 0 ))
+do
+	((i=i+1))
+	if [[ -e $1 ]] && [[ -r $1 ]]
+	then
+		echo "File $1 is readable!"
+	else
+		touch $1
+	fi	
+	shift
+done
+
+exit 0

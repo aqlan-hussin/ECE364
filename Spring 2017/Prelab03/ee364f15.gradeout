@@ -1,0 +1,20 @@
+Prelab03/ee364f15/
+
+
+------------------------------------------------------------------------------------------
+FUNCTION                  | DESCRIPTION               | COMMENTS                  | POINTS    
+------------------------------------------------------------------------------------------
+findName                                                Passed                      2/2       
+getColumnSum                                            FAILED                      0/2       
+getElementwiseSum                                       Passed                      2/2       
+getFormattedNames                                       Error running function      0/2       
+getFormattedSSN                                         Passed                      2/2       
+getHeadAverage                                          Passed                      1/1       
+getMaxOccurrence                                        Passed                      2/2       
+getMaxProduct                                           Passed                      2/2       
+getNumberAverage                                        FAILED                      0/2       
+getTailMax                                              FAILED                      0/1       
+removeDuplicates                                        Passed                      2/2       
+------------------------------------------------------------------------------------------
+
+Total Score = 13

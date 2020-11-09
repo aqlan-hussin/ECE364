@@ -1,0 +1,8 @@
+#! /bin/bash
+Int=$@
+for (( I=Int; I >= 0; I-- ))
+do
+	if (( I % 3 == 0 ))
+	then
+		echo $I
+done

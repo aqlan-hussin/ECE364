@@ -1,0 +1,19 @@
+Prelab10/ee364f15/
+
+---------------------------------------------------------------------------------
+FUNCTION            | DESCRIPTION          | COMMENTS                 | POINTS  
+---------------------------------------------------------------------------------
+clear                                        Passed                     2/2     
+decimalDigits         0 decimal digits       Passed                     2/2     
+decimalDigits         3 decimal digits       Passed                     2/2     
+examples              example1               Passed                     2/2     
+examples              example2               Passed                     2/2     
+examples              example3               Passed                     2/2     
+examples              example4               Passed                     2/2     
+examples              example5               Passed                     2/2     
+immediateExecution                           Passed                     2/2     
+thousandsSeparator    thousands checked      Passed                     1/1     
+thousandsSeparator    thousands unchecked    Passed                     1/1     
+---------------------------------------------------------------------------------
+
+Total Score = 20.0

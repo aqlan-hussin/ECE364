@@ -1,0 +1,18 @@
+Lab10/inlab/ee364f15
+
+---------------------------------------------------------------------------------------
+FUNCTION   | DESCRIPTION                         | COMMENTS                 | POINTS  
+---------------------------------------------------------------------------------------
+ClearForm    Edit and Clear                        FAILED                     0/8     
+ClearForm    Random Edit and Clear                 FAILED                     0/8     
+LoadData     Buttons after Data Loaded             Error running function     0/8     
+LoadData     Buttons after Data Loaded & Edited    Error running function     0/8     
+LoadData     Data Loaded                           Error running function     0/8     
+LoadData     Data Loaded & Edited                  Error running function     0/8     
+SaveData     Buttons after Direct Save             Error running function     0/8     
+SaveData     Direct Save                           Error running function     0/8     
+SaveData     Save from Random Edit                 Passed                     8/8     
+SaveData     Save from Sequential Edit             Passed                     8/8     
+---------------------------------------------------------------------------------------
+
+Total Score = 16.0

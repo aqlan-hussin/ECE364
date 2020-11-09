@@ -1,0 +1,120 @@
+Prelab07/ee364f15/
+
+
+------------------------------------------------------------------------------------------
+FUNCTION                  | DESCRIPTION               | COMMENTS                  | POINTS    
+------------------------------------------------------------------------------------------
+Point3D_cardinalityExists                               Passed                      0.3/0.3   
+Point3D_clone               Identity                    Passed                      0.1/0.1   
+Point3D_clone               normalOperation             Passed                      0.2/0.2   
+Point3D_coordinatesExist                                Error running function      0/0.3     
+Point3D_distanceFrom        normalOperation             Passed                      0.2/0.2   
+Point3D_distanceFrom        wrongCardinality            Passed                      0.1/0.1   
+Point3D_division            Identity                    Passed                      0.1/0.1   
+Point3D_division            normalOperation             Passed                      0.2/0.2   
+Point3D_equality            Identity                    Passed                      0.1/0.1   
+Point3D_equality            normalOperation             Passed                      0.1/0.1   
+Point3D_equality            wrongCardinality            Passed                      0.1/0.1   
+Point3D_floatAddition       Identity                    Passed                      0.1/0.1   
+Point3D_floatAddition       normalOperation1            Passed                      0.1/0.1   
+Point3D_floatAddition       normalOperation2            Error running function      0/0.1     
+Point3D_floatSubtraction    Identity                    Passed                      0.1/0.1   
+Point3D_floatSubtraction    normalOperation             Passed                      0.2/0.2   
+Point3D_greaterThan         normalOperation             Passed                      0.2/0.2   
+Point3D_greaterThan         wrongCardinality            Passed                      0.1/0.1   
+Point3D_greaterThanOrEqual  normalOperation             Passed                      0.2/0.2   
+Point3D_greaterThanOrEqual  wrongCardinality            Passed                      0.1/0.1   
+Point3D_hashExists                                      Passed                      0.3/0.3   
+Point3D_indexing                                        Passed                      0.3/0.3   
+Point3D_inequality          Identity                    Passed                      0.1/0.1   
+Point3D_inequality          normalOperation             Passed                      0.1/0.1   
+Point3D_inequality          wrongCardinality            Passed                      0.1/0.1   
+Point3D_initializer         correct input               Passed                      0.075/0.075
+Point3D_initializer         integer input               Passed                      0.075/0.075
+Point3D_initializer         list input                  Passed                      0.075/0.075
+Point3D_initializer         string input                Passed                      0.075/0.075
+Point3D_lessThan            normalOperation             Passed                      0.2/0.2   
+Point3D_lessThan            wrongCardinality            Passed                      0.1/0.1   
+Point3D_lessThanOrEqual     normalOperation             Passed                      0.2/0.2   
+Point3D_lessThanOrEqual     wrongCardinality            Passed                      0.1/0.1   
+Point3D_multiplication      Identity                    Passed                      0.1/0.1   
+Point3D_multiplication      normalOperation1            Passed                      0.1/0.1   
+Point3D_multiplication      normalOperation2            Error running function      0/0.1     
+Point3D_nearestPoint        emptyList                   Passed                      0.1/0.1   
+Point3D_nearestPoint        pointList                   Passed                      0.2/0.2   
+Point3D_negation            Identity                    Passed                      0.1/0.1   
+Point3D_negation            normalOperation             Passed                      0.2/0.2   
+Point3D_pointAddition       Identity                    Passed                      0.1/0.1   
+Point3D_pointAddition       normalOperation             Passed                      0.1/0.1   
+Point3D_pointAddition       wrongCardinality            Passed                      0.1/0.1   
+Point3D_pointSubtraction    Identity                    Passed                      0.1/0.1   
+Point3D_pointSubtraction    normalOperation             Passed                      0.1/0.1   
+Point3D_pointSubtraction    wrongCardinality            Passed                      0.1/0.1   
+Point3D_printPoint                                      FAILED                      0/0.3     
+Point3D_tupleExists                                     Passed                      0.3/0.3   
+PointGroup_Existence                                    Passed                      0.5/0.5   
+PointGroup_addPoint         normalOperation             Passed                      0.3/0.3   
+PointGroup_addPoint         wrongCardinality            Passed                      0.2/0.2   
+PointGroup_cardinalityExists                             Passed                      0.5/0.5   
+PointGroup_computeBoundingHyperCube                             Error running function      0/1       
+PointGroup_computeNearestNeighbors                             Passed                      0.5/0.5   
+PointGroup_count                                        Passed                      0.5/0.5   
+PointGroup_initializer      correct input               Passed                      0.2/0.2   
+PointGroup_initializer      emptyList                   Passed                      0.1/0.1   
+PointGroup_initializer      wrongCardinality            Passed                      0.1/0.1   
+PointGroup_initializer      wrongKey                    Passed                      0.1/0.1   
+PointGroup_membership                                   Passed                      0.3/0.3   
+PointGroup_pointAddition    normalOperation             Passed                      0.2/0.2   
+PointGroup_pointAddition    wrongCardinality            Passed                      0.1/0.1   
+PointGroup_pointSubtraction missingPoint                Error running function      0/0.1     
+PointGroup_pointSubtraction normalOperation             Passed                      0.2/0.2   
+PointND_cardinalityExists                               Passed                      0.5/0.5   
+PointND_clone               Identity                    Passed                      0.2/0.2   
+PointND_clone               normalOperation             Passed                      0.3/0.3   
+PointND_distanceFrom        normalOperation             Passed                      0.3/0.3   
+PointND_distanceFrom        wrongCardinality            Passed                      0.2/0.2   
+PointND_division            Identity                    Passed                      0.1/0.1   
+PointND_division            normalOperation             Passed                      0.2/0.2   
+PointND_equality            Identity                    Passed                      0.1/0.1   
+PointND_equality            normalOperation             Passed                      0.1/0.1   
+PointND_equality            wrongCardinality            Passed                      0.1/0.1   
+PointND_floatAddition       Identity                    Passed                      0.1/0.1   
+PointND_floatAddition       normalOperation1            Passed                      0.1/0.1   
+PointND_floatAddition       normalOperation2            Error running function      0/0.1     
+PointND_floatSubtraction    Identity                    Passed                      0.1/0.1   
+PointND_floatSubtraction    normalOperation             Passed                      0.2/0.2   
+PointND_greaterThan         normalOperation             Passed                      0.2/0.2   
+PointND_greaterThan         wrongCardinality            Passed                      0.1/0.1   
+PointND_greaterThanOrEqual  normalOperation             Passed                      0.2/0.2   
+PointND_greaterThanOrEqual  wrongCardinality            Passed                      0.1/0.1   
+PointND_hashExists                                      Passed                      0.5/0.5   
+PointND_indexing                                        Passed                      0.3/0.3   
+PointND_inequality          Identity                    Passed                      0.1/0.1   
+PointND_inequality          normalOperation             Passed                      0.1/0.1   
+PointND_inequality          wrongCardinality            Passed                      0.1/0.1   
+PointND_initializer         correct input               Passed                      0.2/0.2   
+PointND_initializer         integer input               Passed                      0.1/0.1   
+PointND_initializer         list input                  Passed                      0.1/0.1   
+PointND_initializer         string input                Passed                      0.1/0.1   
+PointND_lessThan            normalOperation             Passed                      0.2/0.2   
+PointND_lessThan            wrongCardinality            Passed                      0.1/0.1   
+PointND_lessThanOrEqual     normalOperation             Passed                      0.2/0.2   
+PointND_lessThanOrEqual     wrongCardinality            Passed                      0.1/0.1   
+PointND_multiplication      Identity                    Passed                      0.1/0.1   
+PointND_multiplication      normalOperation1            Passed                      0.1/0.1   
+PointND_multiplication      normalOperation2            Error running function      0/0.1     
+PointND_nearestPoint        emptyList                   Passed                      0.2/0.2   
+PointND_nearestPoint        pointList                   Passed                      0.3/0.3   
+PointND_negation            Identity                    Passed                      0.1/0.1   
+PointND_negation            normalOperation             Passed                      0.2/0.2   
+PointND_pointAddition       Identity                    Passed                      0.1/0.1   
+PointND_pointAddition       normalOperation             Passed                      0.1/0.1   
+PointND_pointAddition       wrongCardinality            Passed                      0.1/0.1   
+PointND_pointSubtraction    Identity                    Passed                      0.1/0.1   
+PointND_pointSubtraction    normalOperation             Passed                      0.1/0.1   
+PointND_pointSubtraction    wrongCardinality            Passed                      0.1/0.1   
+PointND_printPoint                                      FAILED                      0/0.5     
+PointND_tupleExists                                     Passed                      0.5/0.5   
+------------------------------------------------------------------------------------------
+
+Total Score = 17.4

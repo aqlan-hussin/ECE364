@@ -1,0 +1,14 @@
+Prelab06/ee364f15/
+
+
+------------------------------------------------------------------------------------------
+FUNCTION                  | DESCRIPTION               | COMMENTS                  | POINTS    
+------------------------------------------------------------------------------------------
+extractFloats                                           FAILED                      0/4       
+findFunctions                                           Passed                      4/4       
+getQueryParameters                                      Passed                      4/4       
+getUrlParts                                             Passed                      4/4       
+getWords                                                FAILED                      0/4       
+------------------------------------------------------------------------------------------
+
+Total Score = 12

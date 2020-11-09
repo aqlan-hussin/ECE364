@@ -1,0 +1,18 @@
+Prelab08/ee364f15/
+
+
+------------------------------------------------------------------------------------------
+FUNCTION                  | DESCRIPTION               | COMMENTS                  | POINTS    
+------------------------------------------------------------------------------------------
+checkOperation              ConnectionRefusedError      FAILED                      0/2       
+checkOperation              No Exception Test           FAILED                      0/2       
+checkOperation              OSError Exception Test      FAILED                      0/2       
+checkOperation              Other Exception Test        Passed                      2/2       
+checkVicinity                                           Passed                      4/4       
+createPoint                 Invalid Input Test          Passed                      2/2       
+createPoint                 Valid Input Test            Passed                      2/2       
+distanceBetween             Different Cardinality Test  Passed                      2/2       
+distanceBetween             Same Cardinality Test       Passed                      2/2       
+------------------------------------------------------------------------------------------
+
+Total Score = 14.0

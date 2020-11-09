@@ -1,0 +1,6 @@
+#! /bin/bash
+Int=$@
+for (( I=Int; I > 0; I-- ))
+do
+	echo $I
+done
